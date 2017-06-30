@@ -29,17 +29,19 @@ class RTD {
 
         // Targets the current page in the navigation.
         if (isApi) {
-            let longnameSelector = doc.longname.replace(/"|:|./g, '_')
+            let longnameSelector = doc.longname.replace(/["|:|.]/g, '_')
             this.$.selectedApiSubItem = $(`#${longnameSelector}_sub`)
             this.$.selectedApiSubItem.removeClass('hidden')
             let selectedApiItem = this.$.selectedApiSubItem.prev()
             selectedApiItem.addClass('selected')
             // Try to position selectedApiItem at the top of the scroll container.
             let navScrollTop = this.$.scroll.get(0).getBoundingClientRect().top
-            let navItemTop = selectedApiItem.get(0).getBoundingClientRect().top
-            this.$.scroll.scrollTop(navItemTop - navScrollTop)
-            // Height of the item from the top of the scroll container.
-            this.$.selectedApiSubItem.parent().find('.fa').removeClass('fa-plus').addClass('fa-minus')
+            if (selectedApiItem.get(0)) {
+                let navItemTop = selectedApiItem.get(0).getBoundingClientRect().top
+                this.$.scroll.scrollTop(navItemTop - navScrollTop)
+                // Height of the item from the top of the scroll container.
+                this.$.selectedApiSubItem.parent().find('.fa').removeClass('fa-plus').addClass('fa-minus')
+            }
         }
 
         this.selectHref()
@@ -62,7 +64,7 @@ class RTD {
                     return $(this).next().next(':empty').length === 0;
                 }).each(function() {
                     $(this).removeClass('invisible').on('click', function(e) {
-                        $(e.currentTarget).next().next().toggleClass('hidden')
+                        $(e.currentTarget).parent().next().toggleClass('hidden')
                         $(e.currentTarget).toggleClass('fa-plus fa-minus')
                     })
                 })

@@ -52,19 +52,15 @@ if (package) {
     </label>
     <label for="nav-trigger" class="overlay"></label>
     <nav class="lnb" id="lnb">
-        <div class="nav-search js-search">
-            <div class="logo" style="<?js= style ?>">
-                <img src="<?js= logoUrl?>" width="100%" height="100%">
-            </div>
-            <input type="text" placeholder="Search docs">
-            <ul class="searched-list"></ul>
-        </div>
-
         <div class="nav-main">
             <h1><a href="index.html" class="link"><?js= name ?></a></h1>
             <?js if (version) { ?>
                 <span class="version">v<?js= version ?></span>
             <?js } ?>
+        </div>
+        <div class="nav-search js-search">
+            <input type="text" placeholder="Search docs">
+            <ul class="searched-list"></ul>
         </div>
 
         <?js if (examples) { ?>

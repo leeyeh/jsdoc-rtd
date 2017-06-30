@@ -321,16 +321,16 @@ function buildSubNavMembers(list, type) {
     let html = ''
 
     if (list.length) {
-        html += `<div class="member-type">${type}</div>`
+        html += `<div><div class="member-type">${type}</div>`
         html += '<ul class="inner">'
         list.forEach(function(item) {
-            html += `<li class="sub-nav-item">${linkto(item.longname, item.name, null, null, true)}`
-            if (item.meta.code.node.async) {
+            html += `<li class="sub-nav-item ${item.deprecated ? 'deprecated' : ''}">${linkto(item.longname, item.name, null, null, true)}`
+            if (item.meta.code.node && (item.meta.code.node.async || item.meta.code.node.value && item.meta.code.node.value.async)) {
                 html += ' <span class="async"> async</span>'
             }
             html += '</a></li>'
         })
-        html += '</ul>'
+        html += '</ul></div>'
     }
 
     return html
@@ -363,7 +363,7 @@ function buildSubNav(obj) {
         memberof: longname,
     })
 
-    let html = `<div class="nav-item-sub hidden" id="${obj.longname.replace(/"|:|./g, '_')}_sub">`
+    let html = `<div class="nav-item-sub hidden" id="${obj.longname.replace(/["|:|.]/g, '_')}_sub">`
 
     html += buildSubNavMembers(members, 'Members')
     html += buildSubNavMembers(methods, 'Methods')
@@ -377,8 +377,10 @@ function buildSubNav(obj) {
 
 function makeCollapsibleItemHtmlInNav(item, linkHtml) {
     return `<li class="nav-item">
-                <span class="toggle-subnav invisible btn btn-link fa fa-plus"></span>
-                ${linkHtml}
+                <header>
+                    <span class="toggle-subnav invisible btn btn-link fa fa-plus"></span>
+                    ${linkHtml}
+                </header>
                 ${buildSubNav(item)}
             </li>`
 }

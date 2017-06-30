@@ -11,6 +11,8 @@ nav {
     min-height: 100%;
     background: #343131;
     z-index: 200;
+    display: flex;
+    flex-direction: column;
 
     > * {
         user-select: none;
@@ -23,6 +25,11 @@ nav {
         color: $accent-color;
     }
 
+    .deprecated {
+        opacity: .6;
+        text-decoration: line-through;
+    }
+
 
     // Hides the scrollbar from the nav, but still allows scrolling the
     // navbar with the wheel.
@@ -31,7 +38,8 @@ nav {
         position: relative;
         overflow-x: hidden;
         overflow-y: scroll;
-        height: calc(100% - 235px);
+        height: 100%;
+        flex: 1;
     }
 
     ul.nav-items {
@@ -43,12 +51,12 @@ nav {
 
     // The tabs elements to navigate.
     .nav-main {
+        background-color: $accent-color;
         padding-top: 10px;
         text-align: center;
-        height: 50px;
 
         .link {
-            color: $grey-color-light-1;
+            color: white!important;        
         }
     }
 
@@ -130,10 +138,15 @@ nav {
         .member-type {
             padding: 0.2rem 0;
             font-size: 0.9rem;
-            margin-left: 1.5rem;
+            padding-left: 1.5rem;
             color: $accent-color;
+            background-color: $grey-color-light-2;
+            border-bottom: 1px solid $grey-color-light-1;
             font-weight: normal;
             cursor: text;
+            position: sticky;
+            top: 23px;
+            z-index: 1;
         }
 
         .inner {
@@ -156,6 +169,11 @@ nav {
         }
     }
 
+    header {
+        z-index: 2;
+        position: sticky;
+        top: -1px;
+    }
 
     // The plus/minus sign next to each navigation item with children.
     span.toggle-subnav {
@@ -169,13 +187,13 @@ nav {
 
         &:hover {
             outline: 0;
-            color: $grey-color-light-1;
+            opacity: .5;
             cursor: hand;
         }
     }
 
     .version {
-        color: #aaa;
+        color: #ddd;
     }
 }
 

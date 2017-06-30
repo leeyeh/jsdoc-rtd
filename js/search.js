@@ -105,7 +105,7 @@ class Search {
     makeListItemHtml(item, inputText) {
         var itemText = item.text
         var itemHref = item.href
-        var $parent = $(item).closest('div')
+        var $parent = $(item).closest('.nav-item-sub')
         var memberof = ''
 
         if ($parent.length && $parent.attr('id')) {
