@@ -1,7 +1,7 @@
 {
   "name": "jsdoc-rtd",
   "description": "Readthedocs-style jsdoc template. Fork from TUI JSDoc template.",
-  "version": "1.0.5",
+  "version": "1.0.13",
   "license": "MIT",
   "homepage": "https://github.com/wearespindle/jsdoc-rtd",
   "main": "publish.js",
@@ -30,17 +30,24 @@
     "tmpl",
     "static"
   ],
+  "contributors": [
+    {
+      "url": "https://github.com/wearespindle/jsdoc-rtd/graphs/contributors"
+    }
+  ],
   "dependencies": {
     "cheerio": "^0.22.0",
     "font-awesome": "^4.7.0",
-    "sanitize-html": "^1.14.1"
+    "sanitize-html": "^1.14.1",
+    "taffydb": "^2.7.3",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "gulp-jsdoc3": "^1.0.1",
-    "jsdoc": "latest",
+    "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git#master",
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "watch-run": "latest"

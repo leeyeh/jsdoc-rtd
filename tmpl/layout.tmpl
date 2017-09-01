@@ -54,9 +54,11 @@ if (package) {
     <nav class="lnb" id="lnb">
         <div class="nav-main">
             <h1><a href="index.html" class="link"><?js= name ?></a></h1>
+            <span class="version">
             <?js if (version) { ?>
-                <span class="version">v<?js= version ?></span>
+                v<?js= version ?>
             <?js } ?>
+            </span>
         </div>
         <div class="nav-search js-search">
             <input type="text" placeholder="Search docs">
