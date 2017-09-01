@@ -1,5 +1,5 @@
 {
-  "name": "jsdoc-rtd",
+  "name": "@leeyeh/jsdoc-rtd",
   "description": "Readthedocs-style jsdoc template. Fork from TUI JSDoc template.",
   "version": "1.0.13",
   "license": "MIT",
