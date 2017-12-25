@@ -336,7 +336,7 @@ function buildSubNavMembers(list, type) {
         html += '<ul class="inner">'
         list.forEach(function(item) {
             html += `<li class="sub-nav-item ${item.deprecated ? 'deprecated' : ''}">${linkto(item.longname, item.name, null, null, true)}`
-            if (item.meta.code.node && (item.meta.code.node.async || item.meta.code.node.value && item.meta.code.node.value.async)) {
+            if (item.meta.async || item.meta.code.node && (item.meta.code.node.async || item.meta.code.node.value && item.meta.code.node.value.async)) {
                 html += ' <span class="async"> async</span>'
             }
             html += '</a></li>'

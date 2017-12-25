@@ -47,7 +47,7 @@
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "gulp-jsdoc3": "^1.0.1",
-    "jsdoc": "git+https://github.com/jsdoc3/jsdoc.git#master",
+    "jsdoc": "leeyeh/jsdoc#v3.4.0",
     "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "watch-run": "latest"
